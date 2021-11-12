@@ -11,6 +11,7 @@ import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
 import {getDistance} from 'geolib';
+import { publiqueRequest } from '../requestMethods';
 
 class ListPharmScreen extends React.Component{
   constructor(props){
@@ -58,7 +59,7 @@ class ListPharmScreen extends React.Component{
 
             async _getPharm(){
               try {
-                 const reponse = await axios.get('http://localhost/web_site/apiPharm/')
+                 const reponse = await publiqueRequest.get();
                   this.setState({
                      listPharmacie: reponse.data,
                      listPharmacieBackup: reponse.data,

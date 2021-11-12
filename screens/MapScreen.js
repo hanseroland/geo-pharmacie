@@ -27,6 +27,7 @@ import axios from 'axios';
 import PolylineDirection from '@react-native-maps/polyline-direction';
 
 import {markers, mapRetroStyle, mapStandaredStyle} from '../model/mapData';
+import { publiqueRequest } from '../requestMethods';
 
 
 
@@ -82,7 +83,7 @@ class MapScreen extends React.Component  {
            // only check the location if it has been granted
            // you also may want to wrap this in a try/catch as async functions can throw
            let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
-           const reponse = await axios.get('http://localhost/web_site/apiPharm/')
+           const reponse = await publiqueRequest.get(),
            this.setState({ location,
                            loaded: true,
                            errorMessage: null, 

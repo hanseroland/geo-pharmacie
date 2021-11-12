@@ -7,6 +7,7 @@ import axios from 'axios';
 
 import ItemGarde from '../components/ItemGarde'
 import SearchInput from '../components/SearchInput'
+import { publiqueRequest } from '../requestMethods';
 
 class GardeScreen extends React.Component{
   constructor(props){
@@ -35,7 +36,7 @@ class GardeScreen extends React.Component{
   async _getGarde(){
            try {
 
-              const reponse = await axios.get('http://localhost/web_site/apiPharm/getGarde.php')
+              const reponse = await publiqueRequestget('/getGarde.php')
                this.setState({
                   listGarde: reponse.data,
                   listGardeBackup: reponse.data,

@@ -6,6 +6,7 @@ import SearchInput from '../components/SearchInput'
 import ItemPill from '../components/ItemPill'
 
 import axios from 'axios';
+import { publiqueRequest } from '../requestMethods';
 
 
 class PillScreen extends React.Component{
@@ -31,11 +32,11 @@ class PillScreen extends React.Component{
         }
       }
 
-
+ 
 async _getMedicament(){
      try {
         const {idPharmacie} = this.props.route.params
-        const reponse = await axios.get('http://localhost/web_site/apiPharm/getMedicament.php')
+        const reponse = await publiqueRequest.get('/getMedicament.php')
          this.setState({
             listMedicament: reponse.data.filter(x => x.idPharmacie==idPharmacie),
             listMedicamentBackup: reponse.data.filter(x => x.idPharmacie==idPharmacie),
