@@ -83,7 +83,7 @@ class MapScreen extends React.Component  {
            // only check the location if it has been granted
            // you also may want to wrap this in a try/catch as async functions can throw
            let location = await Location.getCurrentPositionAsync({ enableHighAccuracy: true });
-           const reponse = await publiqueRequest.get(),
+           const reponse = await publiqueRequest.get()
            this.setState({ location,
                            loaded: true,
                            errorMessage: null, 
@@ -91,6 +91,7 @@ class MapScreen extends React.Component  {
                            markers: reponse.data
                            });
                    }
+                 
          };
 
         

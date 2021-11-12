@@ -36,13 +36,14 @@ class GardeScreen extends React.Component{
   async _getGarde(){
            try {
 
-              const reponse = await publiqueRequestget('/getGarde.php')
+              const reponse = await publiqueRequest.get('/getGarde.php')
+              const rep = await publiqueRequest.get()
                this.setState({
-                  listGarde: reponse.data,
+                  listGarde: reponse.data, 
                   listGardeBackup: reponse.data,
                   isLoading: false
                })
-
+               
              }catch (error) {
              error(error);
              }

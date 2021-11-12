@@ -6,6 +6,7 @@ import {useTheme} from '@react-navigation/native';
 import axios from 'axios';
 
 import Calendrier from '../components/Calendrier'
+import { publiqueRequest } from '../requestMethods';
 
 class PlanningScreen extends React.Component{
   constructor(props){
@@ -51,7 +52,7 @@ class PlanningScreen extends React.Component{
 
     async _getPlanning(){
             const idCal = this.props.route.params.numCalendrier
-            const reponse = await axios.get('http://localhost/web_site/apiPharm/getPlanning.php')
+            const reponse = await  publiqueRequest.get('/getPlanning.php')
              this.setState({
                 listPlanning: reponse.data.filter(x => x.numCal==idCal),
                 isLoading: false,
